@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANIEL KENANDA MONARI (@DAN DANTE)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+    }
+    h2 {
+      color: #444;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .editable-section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DANIEL KENANDA MONARI (@DAN DANTE)</h1>
+    <p>Welcome to Dante's personal website</p>
+  </header>
+
+  <main>
+    <div class="editable-section">
+      <h2>Who is Dante?</h2>
+      <p id="bio">
+        Dante is a creative and ambitious individual passionate about technology, storytelling, and personal development. He uses his platform to share thoughts, achievements, and future goals.
+      </p>
+      <textarea id="bioInput" placeholder="Update bio here..."></textarea>
+      <button onclick="updateBio()">Update Bio</button>
+    </div>
+
+    <div class="editable-section">
+      <h2>Gallery</h2>
+      <img src="https://via.placeholder.com/600x300.png?text=Dante's+Photo+1" alt="Photo 1">
+      <img src="https://via.placeholder.com/600x300.png?text=Dante's+Photo+2" alt="Photo 2">
+    </div>
+
+    <div class="editable-section">
+      <h2>Add Custom Note</h2>
+      <input type="text" id="customNoteInput" placeholder="Write something...">
+      <button onclick="addCustomNote()">Add Note</button>
+      <ul id="noteList"></ul>
+    </div>
+  </main>
+
+  <script>
+    function updateBio() {
+      const newBio = document.getElementById('bioInput').value;
+      if (newBio.trim() !== '') {
+        document.getElementById('bio').textContent = newBio;
+        document.getElementById('bioInput').value = '';
+      }
+    }
+
+    function addCustomNote() {
+      const note = document.getElementById('customNoteInput').value;
+      if (note.trim() !== '') {
+        const listItem = document.createElement('li');
+        listItem.textContent = note;
+        document.getElementById('noteList').appendChild(listItem);
+        document.getElementById('customNoteInput').value = '';
+      }
+    }
+  </script>
+</body>
+</html>
